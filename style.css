@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+div.body-container {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: .5fr 4fr .3fr;
+    height: 100vh;
+}
+
+header, section, aside, footer {
+    border: 1px solid #000;
+}
+
+header {
+    grid-column: 1/3;
+    grid-row: 1/2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#add-button {
+    margin-left: auto;
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 1fr;
+    column-gap: 1.5rem;
+    row-gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.card {
+    display: grid;
+    grid-template-rows: 4fr .8fr;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+}
+
+.info {
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding-top: 2rem;
+}
+
+.toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+aside {
+    grid-column: 2/3;
+}
+
+footer {
+    grid-column: 1/3;
+}
+
+.modal-wrapper-one,
+.modal-wrapper-two {
+    height: 100vh;
+    width: 100vw;
+}
+
+.modal-wrapper-one {
+    display: none;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-wrapper-two {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}

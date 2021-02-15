@@ -3,9 +3,52 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/fee433bc58.js" crossorigin="anonymous"></script>
         <title>Library</title>
     </head>
     <body>
+        <div class="body-container">
+            <div class="modal-wrapper-one">
+                <div class="modal-wrapper-two">
+                    <div class="modal-content">
+                        <form>
+                            <input type="text" placeholder="Title" name="title" id="title">
+                            <input type="text" placeholder="Author" name="author" id="author">
+                            <select name="genre" id="genre">
+                                <option disabled></option>
+                                <option value="adventure">Adventure</option>
+                                <option value="biography">Biography</option>
+                                <option value="crime">Crime</option>
+                                <option value="fantasy">Fantasy</option>
+                                <option value="history">History</option>
+                                <option value="mystery">Mystery</option>
+                                <option value="non-fiction">Non-Fiction</option>
+                                <option value="romance">Romance</option>
+                                <option value="science fiction">Science Fiction</option>
+                                <option value="self-help">Self-Help</option>
+                                <option value="travel">Travel</option>
+                            </select>
+                            <input type="number" placeholder="Number of Pages" name="num-pages" id="numPages">
+                            <!--<input type="checkbox" name="read" value="Read" id="isRead">Read-->
+                            <button id="form-submit-button">Add Book</button> 
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <header>
+                <h1>My library</h1>
+                <i class="fas fa-plus" id="add-button"></i>
+            </header>
+            <section></section>
+            <aside>
+                Info
+            </aside>
+            <footer>
+                <p><small>Thomas Aspbury</small></p>
+                <p><small>A project for <a href="http://www.theodinproject.com">The Odin Project</a></small></p>
+            </footer>
+        </div>
+        
         <script src="main.js"></script>
     </body>
 </html>
