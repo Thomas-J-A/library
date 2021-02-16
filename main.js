@@ -21,6 +21,7 @@ function addBook() {
         }
     }
     myLibrary.push(book);
+    localStorage.setItem('my library', JSON.stringify(myLibrary));
     updateDisplay();
 }
 
@@ -76,6 +77,7 @@ function createRemoveIcon(cardTop, i) {
         removeIcon.addEventListener('click', e => {
             let index = +e.target.parentNode.parentNode.getAttribute('data-index');
             myLibrary.splice(index, 1);
+            localStorage.setItem('my library', JSON.stringify(myLibrary));
             updateDisplay();
         });
         cardTop.appendChild(removeIcon);
@@ -185,4 +187,12 @@ formSubmit.addEventListener('click', (e) => {
     modalWrapperOuter.style.display = 'none';
 });
 
-updateDisplay();
+window.addEventListener('load', () => {
+    let value = localStorage.getItem('my library');
+    if (value) {
+        myLibrary = JSON.parse(value);
+        updateDisplay();
+    } else {
+        updateDisplay();
+    }
+});
