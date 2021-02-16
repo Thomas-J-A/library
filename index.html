@@ -16,21 +16,25 @@
                             <input type="text" placeholder="Author" name="author" id="author">
                             <select name="genre" id="genre">
                                 <option disabled></option>
-                                <option value="adventure">Adventure</option>
-                                <option value="biography">Biography</option>
-                                <option value="children">Children</option>
-                                <option value="crime">Crime</option>
-                                <option value="fantasy">Fantasy</option>
-                                <option value="history">History</option>
-                                <option value="mystery">Mystery</option>
-                                <option value="non-fiction">Non-Fiction</option>
-                                <option value="romance">Romance</option>
-                                <option value="science fiction">Science Fiction</option>
-                                <option value="self-help">Self-Help</option>
-                                <option value="travel">Travel</option>
+                                <option value="Adventure">Adventure</option>
+                                <option value="Biography">Biography</option>
+                                <option value="Children">Children</option>
+                                <option value="Crime">Crime</option>
+                                <option value="Fantasy">Fantasy</option>
+                                <option value="History">History</option>
+                                <option value="Mystery">Mystery</option>
+                                <option value="Non-Fiction">Non-Fiction</option>
+                                <option value="Romance">Romance</option>
+                                <option value="Science Fiction">Science Fiction</option>
+                                <option value="Self-Help">Self-Help</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Other">Other</option>
                             </select>
                             <input type="number" placeholder="Number of Pages" name="num-pages" id="numPages">
-                            <input type="checkbox" name="read" id="isRead">Read
+                            <label>
+                                Read:
+                                <input type="checkbox" name="read" id="isRead">
+                            </label>
                             <button id="form-submit-button">Add Book</button> 
                         </form>
                     </div>
@@ -47,6 +51,7 @@
             <section></section> 
 
             <aside>
+                <h3>My Info</h3>
                 <table>
                     <tr>
                         <th>Total Books:</th>
@@ -63,6 +68,7 @@
                 </table>
                 <h3>Genres</h3>
                 <div class="genre-list"></div>
+                <img src="assets/bookshelf.png" alt="bookshelf">
             </aside>
              
             <footer>

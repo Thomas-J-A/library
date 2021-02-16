@@ -1,19 +1,4 @@
-let myLibrary = [
-    {
-        title: 'Don Quixote',
-        author: 'Miguel de Cervantes',
-        genre: 'adventure',
-        numPages: 766,
-        isRead: true
-    },
-    {
-        title: 'A Tale of Two Cities',
-        author: 'Charles Dickens',
-        genre: 'fantasy',
-        numPages: 349,
-        isRead: false
-    }
-];
+let myLibrary = [];
 
 function Book(title, author, genre, numPages, isRead) {
     this.title = title;
@@ -175,7 +160,7 @@ const modalWrapperInner = document.querySelector('.modal-wrapper-two');
 const formSubmit = document.querySelector('#form-submit-button');
 const tableData = Array.from(document.querySelectorAll('td'));
 const genreList = document.querySelector('.genre-list');
-const props = Object.keys(myLibrary[0]);
+const props = ['title', 'author', 'genre', 'numPages', 'isRead'];
 
 
 /* event handlers */

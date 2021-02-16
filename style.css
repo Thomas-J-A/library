@@ -38,11 +38,13 @@ header {
 #add-button {
     font-size: 3rem;
     margin-left: auto;
-    padding-right: 1.5rem;
+    margin-right: 3.5rem;
+    transition: all 1s;
 }
 
 #add-button:hover {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
+    transform: rotate(360deg);
 }
 
 section {
@@ -70,6 +72,7 @@ section {
     right: 1rem;
     color: rgb(0, 162, 255);
     font-size: 1.5rem;
+    transition: all .1s;
 }
 
 .card i:hover {
@@ -107,17 +110,33 @@ div.card p:first-of-type {
 }
 
 aside {
-    display: flex;
-    flex-direction: column;
     grid-column: 2/3;
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+}
+
+aside table {
+    margin: 1.5rem 0;
 }
 
 .genre-list {
     columns: 2;
+    margin-top: 1rem;
+    text-align: left;
 }
 
 .genre-list span {
     display: block;
+}
+
+aside img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 200px;
+    width: auto;
 }
 
 footer {
@@ -146,6 +165,7 @@ footer {
 
 .modal-content {
     background-color: #fff;
+    border-radius: 15px;
     padding: 2rem;
 }
 
@@ -154,4 +174,17 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center; 
+}
+
+input, select, label {
+    border: 2px solid #000;
+    font-size: 1.2rem;
+    margin: 1rem;
+    padding: .5rem;
+}
+
+#form-submit-button {
+    font-size: 1rem;
+    margin-top: .5rem;
+    padding: .5rem;
 }
