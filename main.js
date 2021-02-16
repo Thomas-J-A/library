@@ -2,23 +2,16 @@ let myLibrary = [
     {
         title: 'Don Quixote',
         author: 'Miguel de Cervantes',
-        genre: 'Adventure',
+        genre: 'adventure',
         numPages: 766,
         isRead: true
     },
     {
         title: 'A Tale of Two Cities',
         author: 'Charles Dickens',
-        genre: 'Fantasy',
+        genre: 'fantasy',
         numPages: 349,
         isRead: false
-    },
-    {
-        title: '1984',
-        author: 'George Orwell',
-        genre: 'Science Fiction',
-        numPages: 435,
-        isRead: true
     }
 ];
 
@@ -35,7 +28,7 @@ function addBook() {
     let book = new Book();
     for (let i = 0; i < formFields.length; i++) {
         if (props[i] == 'numPages') {              
-            book[props[i]] = `${formFields[i].value}pgs`;
+            book[props[i]] = +formFields[i].value;
         } else if (props[i] == 'isRead') {
             book[props[i]] = formFields[i].checked;
         } else {
@@ -49,6 +42,7 @@ function addBook() {
 function updateDisplay() {
     clearDisplay();
     createCards();
+    updateStats();
 }
 
 
@@ -83,6 +77,7 @@ function createCards() {
                 cardBottom.textContent = 'Read';
                 myLibrary[index].isRead = true;
             }
+            updateStats();
         });
         card.appendChild(cardBottom);
 
@@ -109,6 +104,67 @@ function populateCard(cardTop, i) {
     }
 }
 
+function updateStats() {
+    for (let i = 0; i < tableData.length; i++) {
+        switch (i) {
+            case 0:
+                tableData[i].textContent = myLibrary.length;
+                break;
+            case 1:
+                tableData[i].textContent = countBooksRead();
+                break;
+            case 2:
+                tableData[i].textContent = countPagesRead();
+                break;
+        }
+    }
+
+    createGenreList();
+}
+
+function countBooksRead() {
+    let count = 0;
+    for (let i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].isRead == true) count++;
+        else continue; 
+    }
+    return count;
+}
+
+function countPagesRead() {
+    let count = 0;
+    for (let i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].isRead == true) {
+            count += myLibrary[i].numPages;
+        }
+    }
+    return count;
+}
+
+function createGenreList() {
+    // find all unique genres in library                 
+    let genres = [];
+    for (let i = 0; i < myLibrary.length; i++) {
+        if (!genres.includes(myLibrary[i].genre)) {
+            genres.push(myLibrary[i].genre);
+        }
+    }
+    genres.sort();
+
+    // delete current genre list
+    const children = Array.from(genreList.children);
+    for (let i = 0; i < children.length; i++) {
+        genreList.removeChild(children[i])
+    }
+
+    // create new genre list
+    for (let i = 0; i < genres.length; i++) {
+        let genre = document.createElement('span');
+        genre.textContent = genres[i];
+        genreList.appendChild(genre);
+    }
+}
+
 
 /* global variables */
 
@@ -117,8 +173,9 @@ const addBtn = document.querySelector('#add-button');
 const modalWrapperOuter = document.querySelector('.modal-wrapper-one');
 const modalWrapperInner = document.querySelector('.modal-wrapper-two');
 const formSubmit = document.querySelector('#form-submit-button');
+const tableData = Array.from(document.querySelectorAll('td'));
+const genreList = document.querySelector('.genre-list');
 const props = Object.keys(myLibrary[0]);
-
 
 
 /* event handlers */
